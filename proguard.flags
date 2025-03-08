@@ -1,0 +1,7 @@
+-keep class com.realmeparts.* {
+  *;
+}
+
+-keep class com.realmeparts.settings.speaker.* {
+  *;
+}

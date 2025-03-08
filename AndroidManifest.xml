@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- SPDX-FileCopyrightText: The LineageOS Project
+     SPDX-License-Identifier: Apache-2.0
+-->
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:sharedUserId="android.uid.system"
+    package="com.realmeparts"
+    android:versionCode="1"
+    android:versionName="1.0" >
+
+    <uses-permission android:name="android.permission.INJECT_EVENTS"
+        tools:ignore="ProtectedPermissions" />
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="android.permission.WRITE_SETTINGS"
+        tools:ignore="ProtectedPermissions" />
+
+    <!-- Required to enable dnd during game mode -->
+    <uses-permission android:name="android.permission.ACCESS_NOTIFICATION_POLICY" />
+
+    <application
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/device_title"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:theme="@style/Theme.SubSettingsBase"
+        android:allowBackup="true"
+        android:fullBackupContent="true">
+
+        <!-- clear spk Settings -->
+        <activity
+            android:name=".speaker.ClearSpeakerActivity"
+            android:exported="true"
+            android:icon="@drawable/ic_speaker_cleaner_icon"
+            android:label="@string/clear_speaker_title">
+        </activity>
+
+        <!-- Device Settings -->
+        <activity
+            android:name=".DeviceSettingsActivity"
+            android:label="@string/device_title"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="com.android.settings.action.EXTRA_SETTINGS" />
+                <action android:name="android.service.quicksettings.action.QS_TILE_PREFERENCES"/>
+                <action android:name="android.intent.action.MAIN" />
+            </intent-filter>
+            <meta-data
+                android:name="com.android.settings.icon"
+                android:resource="@drawable/ic_homepage_settings" />
+            <meta-data
+                android:name="com.android.settings.category"
+                android:value="com.android.settings.category.ia.system" />
+            <meta-data
+                android:name="com.android.settings.summary"
+                android:resource="@string/device_summary" />
+        </activity>
+
+        <activity android:name=".DeviceSettings" />
+
+        <receiver 
+                  android:name="com.realmeparts.Startup"
+                  android:exported="true">
+            <intent-filter android:priority="100" >
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+            </intent-filter>
+        </receiver>
+
+        <!-- Quick Settings Tiles -->
+        <service
+            android:name="com.realmeparts.PerfProfileTileService"
+            android:exported="true"
+            android:icon="@drawable/ic_perf_profile"
+            android:label="@string/perf_profile_title"
+            android:permission="android.permission.BIND_QUICK_SETTINGS_TILE">
+            <intent-filter>
+                <action android:name="android.service.quicksettings.action.QS_TILE" />
+            </intent-filter>
+        </service>
+        <service
+            android:name="com.realmeparts.DCModeTileService"
+            android:icon="@drawable/ic_dc_tile"
+            android:label="@string/tile_dc_mode"
+            android:permission="android.permission.BIND_QUICK_SETTINGS_TILE"
+            android:exported="true">
+            <intent-filter>
+                <action
+                    android:name="android.service.quicksettings.action.QS_TILE"/>
+            </intent-filter>
+        </service>
+        <service
+            android:name="com.realmeparts.SRGBModeTileService"
+            android:icon="@drawable/ic_srgb_tile"
+            android:label="@string/tile_srgb_mode"
+            android:permission="android.permission.BIND_QUICK_SETTINGS_TILE"
+            android:exported="true">
+            <intent-filter>
+                <action
+                    android:name="android.service.quicksettings.action.QS_TILE"/>
+            </intent-filter>
+        </service>
+        <service
+            android:name="com.realmeparts.OtgToggleService"
+            android:icon="@drawable/ic_otg_tile"
+            android:label="@string/tile_otg_mode"
+            android:permission="android.permission.BIND_QUICK_SETTINGS_TILE"
+            android:exported="true">
+            <intent-filter>
+                <action
+                    android:name="android.service.quicksettings.action.QS_TILE"/>
+            </intent-filter>
+        </service>
+        <service
+            android:name="com.realmeparts.DT2WTileService"
+            android:exported="true"
+            android:icon="@drawable/ic_dt2w"
+            android:label="@string/dt2w_title"
+            android:permission="android.permission.BIND_QUICK_SETTINGS_TILE">
+            <intent-filter>
+                <action android:name="android.service.quicksettings.action.QS_TILE" />
+            </intent-filter>
+        </service>
+        <service android:name="com.realmeparts.GameModeRotationService"
+                android:exported="false">
+        </service>
+    </application>
+</manifest>

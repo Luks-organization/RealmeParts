@@ -1,0 +1,40 @@
+//
+// SPDX-FileCopyrightText: The LineageOS Project
+// SPDX-License-Identifier: Apache-2.0
+//
+
+android_app {
+    name: "RealmeParts",
+    defaults: ["SettingsLibDefaults"],
+
+    srcs: ["src/**/*.java"],
+    resource_dirs: ["res"],
+
+    certificate: "platform",
+    platform_apis: true,
+    privileged: true,
+
+    static_libs: [
+        "androidx.core_core",
+        "androidx.preference_preference",
+        "SettingsLibPreference",
+        "org.lineageos.settings.resources",
+    ],
+
+    optimize: {
+        proguard_flags_files: ["proguard.flags"],
+    },
+}
+
+prebuilt_etc {
+    name: "cabc.rc",
+    vendor: true,
+    src: "init/cabc.rc",
+    sub_dir: "init",
+}
+
+prebuilt_etc {
+    name: "parts.rc",
+    src: "init/parts.rc",
+    sub_dir: "init",
+}

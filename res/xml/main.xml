@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- SPDX-FileCopyrightText: The LineageOS Project
+     SPDX-License-Identifier: Apache-2.0
+-->
+
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <PreferenceCategory
+        android:key="graphics"
+        android:title="@string/display_title">
+
+        <com.realmeparts.SecureSettingListPreference
+            android:icon="@drawable/ic_cabc"
+            android:key="cabc"
+            android:dialogTitle="@string/cabc_dialogTitle"
+            android:entries="@array/cabc_profiles"
+            android:entryValues="@array/cabc_values"
+            android:defaultValue="0"
+            android:title="@string/cabc_title" />
+
+        <SwitchPreference
+            android:icon="@drawable/game_mode_icon"
+            android:key="game"
+            android:summary="@string/game_mode_summary"
+            android:title="@string/game_mode_title" />
+
+        <SwitchPreference
+            android:key="dnd"
+            android:icon="@drawable/ic_info_outline_24dp"
+            android:title="@string/dnd_title"
+            android:summary="@string/dnd_summary" />
+
+        <SwitchPreference
+            android:key="dt2w"
+            android:icon="@drawable/ic_dt2w"
+            android:summary="@string/dt2w_summary"
+            android:title="@string/dt2w_title" />
+
+        <SwitchPreference
+            android:icon="@drawable/dc_mode_icon"
+            android:key="dc"
+            android:summary="@string/dc_mode_summary"
+            android:title="@string/dc_mode_title" />
+
+        <SwitchPreference
+            android:icon="@drawable/srgb_mode_icon"
+            android:key="srgb"
+            android:summary="@string/srgb_mode_summary"
+            android:title="@string/srgb_mode_title" />
+
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:key="refresh_rate"
+        android:title="@string/refresh_title">
+
+        <SwitchPreference
+            android:key="refresh_rate_90Forced"
+            android:icon="@drawable/refresh_rate_90Forced_icon"
+            android:summary="@string/refresh_rate_90Forced_summary"
+            android:title="@string/refresh_rate_90Forced_title" />
+
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:key="perf"
+        android:title="@string/perf_title">
+
+        <com.realmeparts.SecureSettingListPreference
+            android:icon="@drawable/ic_perf_profile"
+            android:key="perf_profile"
+            android:dialogTitle="@string/perf_profile_title"
+            android:entries="@array/perf_profiles"
+            android:entryValues="@array/perf_profile_values"
+            android:defaultValue="0"
+            android:title="@string/perf_profile_title" />
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:title="Sound">
+
+        <Preference
+            android:key="clearspeaker"
+            android:icon="@drawable/ic_speaker_cleaner_icon"
+            android:title="@string/clear_speaker_title"
+            android:summary="@string/clear_speaker_summary">
+            <intent android:action="android.intent.action.MAIN"
+                 android:targetPackage="com.realmeparts"
+                 android:targetClass="com.realmeparts.speaker.ClearSpeakerActivity"/>
+        </Preference>
+
+    </PreferenceCategory> 
+
+    <PreferenceCategory
+        android:key="misc"
+        android:title="@string/misc_title">
+			
+        <com.realmeparts.SecureSettingListPreference
+            android:key="vibration_strength"
+            android:title="@string/vibration_strength_title"
+            android:icon="@drawable/ic_vibration"
+            android:entries="@array/vibration_strength_entries"
+            android:entryValues="@array/vibration_strength_values"
+            android:defaultValue="2500" />
+
+        <SwitchPreference
+            android:icon="@drawable/usb_otg_icon"
+            android:key="otg"
+            android:summary="@string/otg_mode_summary"
+            android:title="@string/otg_mode_title" />
+
+        <Preference
+            android:key="mtk_engineer"
+            android:icon="@drawable/ic_engineer"
+            android:title="@string/engineer_mode_title"
+            android:summary="@string/engineer_mode_summary">
+            <intent android:action="android.intent.action.MAIN"
+                 android:targetPackage="com.mediatek.engineermode"
+                 android:targetClass="com.mediatek.engineermode.EngineerMode"/>
+        
+        </Preference>
+
+    </PreferenceCategory>
+</PreferenceScreen>

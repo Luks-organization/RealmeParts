@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- SPDX-FileCopyrightText: The LineageOS Project
+     SPDX-License-Identifier: Apache-2.0
+-->
+
+<resources>
+    <string name="device_title">Настройки Realme</string>
+    <string name="device_summary">Настройка параметров устройства</string>
+    <string name="display_title">Дисплей</string>
+    <string name="misc_title">Misc настройки</string>
+
+    <!-- Ambient settings -->
+    <string name="ambient_enable">Использовать внешнее отображение</string>
+    <string name="ambient_display_gestures_title">Внешнее отображение</string>
+    <string name="wake_on_gesture_title">Внешний дисплей</string>
+    <string name="ambient_display_enable">Использовать внешний дисплей</string>
+    <string name="ambient_display_title">Внешний дисплей</string>
+    <string name="ambient_display_summary">Дополнительные жесты для пробуждения экрана</string>
+    <string name="ambient_display_gestures_summary">Дополнительные жесты для пробуждения экрана</string>
+    <string name="wake_on_gesture_summary">Дополнительные жесты для пробуждения экрана</string>
+    <string name="ambient_display_always_on_title">Всегда включен</string>
+    <string name="ambient_display_always_on_summary">Отображает время, значки уведомлений и другую информацию. Увеличен расход заряда батареи.</string>
+
+    <!-- Tilt sensor -->
+    <string name="tilt_sensor_title">Датчик наклона</string>
+
+    <!-- Pickup sensor -->
+    <string name="pickup_sensor_title">Датчик приближения</string>
+
+    <!-- Proximity sensor -->
+    <string name="proximity_sensor_title">Датчик приближения</string>
+
+    <!-- Hand wave gesture -->
+    <string name="hand_wave_gesture_title">Взмах рукой</string>
+    <string name="hand_wave_gesture_summary">Импульсные уведомления о взмахе руки</string>
+
+    <!-- Pick-up gesture -->
+    <string name="pick_up_gesture_title">Сигнал поднятия руки</string>
+    <string name="pick_up_gesture_summary">Импульсные уведомления о получении</string>
+
+    <!-- Pick-up to wake gesture-->
+    <string name="wake_gesture_title">Пробуждение</string>
+    <string name="wake_gesture_summary">Пробуждение устройства вместо отправки импульсных уведомлений</string>
+
+    <!-- Pocket gesture -->
+    <string name="pocket_gesture_title">Pocket</string>
+    <string name="pocket_gesture_summary">Импульсные уведомления при извлечении из pocket</string>
+
+    <!-- Proximity wake -->
+    <string name="proximity_wake_title">Бесконтактное пробуждение</string>
+    <string name="proximity_wake_enable_title">Бесконтактное пробуждение</string>
+
+    <!-- Smart wake strings-->
+    <string name="smart_wake_gesture_title">Интеллектуальное пробуждение</string>
+    <string name="smart_wake_gesture_summary">Импульсные уведомления о незначительном движении устройства и экран пробуждения при поднятии трубки</string>
+
+    <!-- Dialog texts -->
+    <string name="dialog_ok">OK</string>
+
+    <!-- Help texts -->
+    <string name="doze_settings_help_title">Справка</string>
+    <string name="doze_settings_help_text">Эти функции используют события датчика для запуска импульса уведомления о режиме ожидания. Выбранный датчик включается только тогда, когда устройство получает уведомление, это помогает снизить расход заряда батареи. Также есть возможность включить выбранный датчик, как только экран погаснет, это приведет к увеличению расхода заряда батареи.</string>
+
+    <!-- CABC -->
+    <string name="cabc_title">Режим CABC</string>
+    <string name="cabc_dialogTitle">Профили CABC</string>
+    <string name="cabc_off">Выключен</string>
+    <string name="cabc_normal">Включен</string>
+    <string name="cabc_balanced">Сбалансированный режим</string>
+    <string name="cabc_aggressive">Режим сверхэнергосбережения</string>
+    <!-- DC dimming -->
+    <string name="dc_mode_summary">Затемнение постоянным током снижает нагрузку на глаза в условиях низкой освещенности, но может привести к снижению качества изображения и ухудшению цветопередачи.</string>
+    <string name="dc_mode_title">Постоянное затемнение</string>
+    <string name="tile_dc_mode">Постоянное затемнение</string>
+    <!-- srgb mode -->
+    <string name="srgb_mode_summary">Режим sRGB для упрощения цветового отображения</string>
+    <string name="srgb_mode_title">Режим sRGB</string>
+    <string name="tile_srgb_mode">sRGB</string>
+    <!-- otg mode -->
+    <string name="otg_mode_summary">Включить питание USB-OTG для внешних наушников и флэш-накопителей</string>
+    <string name="otg_mode_title">Включить USB-OTG</string>
+    <string name="tile_otg_mode">Включить USB-OTG</string>
+    <!-- game mode -->
+    <string name="game_mode_summary">Включение игрового режима. Использование игрового режима значительно влияет на срок службы батареи</string>
+    <string name="game_mode_title">Игровой режим</string>
+    <string name="tile_game_mode">Игровой режим</string>
+    <string name="dnd_title">Не беспокоить</string>
+    <string name="dnd_summary">Режим Не беспокоить будет активирован, если включен игровой режим</string>
+    <string name="game_mode_notif_content">Игровой режим активирован</string>
+    <!-- DT2W -->
+    <string name="dt2w_title">Двойное нажатие для пробуждения</string>
+    <string name="dt2w_summary">Если включена функция «Двойное нажатие для пробуждения», вы можете дважды коснуться экрана, чтобы включить его.</string>
+    <!-- perf profiles -->
+    <string name="perf_title">Производительность устройства</string>
+    <string name="perf_profile_title">Профиль производительности</string>
+    <string name="mode_balance">Сбалансированный</string>
+    <string name="mode_battery">Энергосбережение</string>
+    <string name="mode_perf">Производительность</string>
+
+    <!-- Forced Refresh rate -->
+    <string name="refresh_title">Частота обновления экрана</string>
+    <string name="refresh_rate_90Forced_title">Плавное отображение</string>
+    <string name="refresh_rate_90Forced_summary">Переключение дисплея на частоту 90 Гц, что улучшает чувствительность сенсорного экрана и качество анимации. Увеличивает время автономной работы.</string>
+
+    <!-- Clear Speaker -->
+    <string name="clear_speaker_title">Очистить динамик</string>
+    <string name="clear_speaker_summary">Воспроизведите 30-сек. звук, чтобы очистить динамик</string>
+    <string name="clear_speaker_description">Запустите эту функцию один или два раза, если вы обнаружите, что ваш динамик слегка забит пылью. Установите громкость мультимедиа на максимум.\n\nЕсли динамик сильно забит, запустите эту функцию 2–5 раз, встряхивая устройство, при этом динамик должен быть направлен вниз.\n\nВНИМАНИЕ: Убедитесь, что все наушники отключены.</string>
+
+	  <!-- Vibration Strength -->
+    <string name="vibration_strength_title">Сила вибрации</string>
+    <string name="vibration_strength_low">Низкая</string>
+    <string name="vibration_strength_medium">Средняя</string>
+    <string name="vibration_strength_high">Высокая (по умолчанию)</string>
+
+    <!-- MTK Engineer Mode-->
+    <string name="engineer_mode_title">Режим инженера MTK</string>
+    <string name="engineer_mode_summary">Не делайте здесь ничего, чего вы не понимаете</string>
+
+    <!-- Unsupported -->
+    <string name="unsupported">Неподдерживаемый</string>
+
+</resources>
