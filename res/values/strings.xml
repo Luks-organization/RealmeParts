@@ -107,12 +107,6 @@
     <string name="clear_speaker_summary">Play a 30-second audio to clear the speaker</string>
     <string name="clear_speaker_description">Run this feature once or twice if you find that your speaker is lightly blocked by dust. Set media volume to maximum.\n\nIf the speaker is blocked heavily, run this feature 2-5 times while shaking your device with the speaker facing downwards.\n\nWARNING: Ensure that any headphones are unplugged.</string>
 
-	  <!-- Vibration Strength -->
-    <string name="vibration_strength_title">Vibration Strength</string>
-    <string name="vibration_strength_low">Low</string>
-    <string name="vibration_strength_medium">Medium</string>
-    <string name="vibration_strength_high">High (default)</string>
-
     <!-- MTK Engineer Mode-->
     <string name="engineer_mode_title">MTK Engineer mode</string>
     <string name="engineer_mode_summary">Do not do anything you dont understand in here</string>

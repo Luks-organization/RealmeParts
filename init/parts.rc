@@ -31,6 +31,18 @@ on property:persist.cabc_profile=2
 on property:persist.cabc_profile=3
     write /sys/kernel/oplus_display/LCM_CABC 3
 
-# Vibration Strength
-on property:persist.vib_strength=*
-    write /sys/class/leds/vibrator/vmax ${persist.vib_strength}
+    # Performance profiles
+on property:persist.perf_profile=0
+    exec - root -- /system/bin/perf_profile.sh 0
+
+on property:persist.perf_profile=1
+    exec - root -- /system/bin/perf_profile.sh 1
+
+on property:persist.perf_profile=2
+    exec - root -- /system/bin/perf_profile.sh 2
+
+on property:sys.boot_completed=1
+    chown root root /sys/module/ged/parameters/gx_force_cpu_boost
+    chown root root /proc/cpufreq/cpufreq_power_mode
+    chown root root /proc/cpufreq/cpufreq_cci_mode
+    exec - root -- /system/bin/sh -c "service call SurfaceFlinger 1008 i32 1"

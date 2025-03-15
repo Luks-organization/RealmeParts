@@ -11,8 +11,6 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.hardware.display.DisplayManager;
 import android.os.Bundle;
-import android.os.VibrationEffect;
-import android.os.Vibrator;
 import android.provider.Settings;
 import android.util.Log;
 import android.view.Display;
@@ -37,7 +35,6 @@ public class DeviceSettings extends PreferenceFragment
     public static final String KEY_OTG_SWITCH = "otg";
     public static final String KEY_GAME_SWITCH = "game";
     public static final String KEY_PERF_PROFILE = "perf_profile";
-    public static final String KEY_VIBRATION_STRENGTH = "vibration_strength";
     public static final String KEY_DT2W_SWITCH = "dt2w";
     public static final String KEY_DND_SWITCH = "dnd";
     public static final String KEY_CABC = "cabc";
@@ -47,7 +44,6 @@ public class DeviceSettings extends PreferenceFragment
 
     // System Properties
     public static final String PERF_PROFILE_SYSTEM_PROPERTY = "persist.perf_profile";
-    public static final String VIB_STRENGTH_SYSTEM_PROPERTY = "persist.vib_strength";
     public static final String CABC_SYSTEM_PROPERTY = "persist.cabc_profile";
 
     // Key categories
@@ -67,8 +63,6 @@ public class DeviceSettings extends PreferenceFragment
     private static NotificationManager mNotificationManager;
     private static TwoStatePreference mDT2WModeSwitch;
 
-	  private Vibrator mVibrator;
-	  private SecureSettingListPreference mVibStrength;
     private TwoStatePreference mDCModeSwitch;
     private TwoStatePreference mSRGBModeSwitch;
     private TwoStatePreference mOTGModeSwitch;
@@ -158,14 +152,6 @@ public class DeviceSettings extends PreferenceFragment
             mPerfProfile.setOnPreferenceChangeListener(this);
         }
 
-        // Vibration Strength Preference
-        mVibStrength = findPreference(KEY_VIBRATION_STRENGTH);
-        if (mVibStrength != null) {
-            mVibStrength.setValue(Utils.getStringProp(VIB_STRENGTH_SYSTEM_PROPERTY, "2500"));
-            mVibStrength.setSummary(mVibStrength.getEntry());
-            mVibStrength.setOnPreferenceChangeListener(this);
-        }
-
         // Engineer Mode Preference (only available if Developer Options are enabled)
         mEngineerMode = findPreference(KEY_CATEGORY_MTK_ENG);
         boolean isDevOptionsEnabled = Settings.Global.getInt(context.getContentResolver(), Settings.Global.DEVELOPMENT_SETTINGS_ENABLED, 0) != 0;
@@ -173,11 +159,6 @@ public class DeviceSettings extends PreferenceFragment
             getPreferenceScreen().removePreference(mEngineerMode);
         }
 
-        // Vibrator Service
-        mVibrator = (Vibrator) context.getSystemService(Context.VIBRATOR_SERVICE);
-        if (mVibrator == null) {
-            Log.w("Settings", "Vibrator service is not available.");
-        }
     }
 
     @Override
@@ -192,17 +173,6 @@ public class DeviceSettings extends PreferenceFragment
             mCABC.setValue(newCABCValue);
             mCABC.setSummary(mCABC.getEntry());
             Utils.setStringProp(CABC_SYSTEM_PROPERTY, newCABCValue);
-
-        } else if (preference == mVibStrength) {
-            String newVibStrengthValue = (String) newValue;
-            mVibStrength.setValue(newVibStrengthValue);
-            mVibStrength.setSummary(mVibStrength.getEntry());
-            Utils.setStringProp(VIB_STRENGTH_SYSTEM_PROPERTY, newVibStrengthValue);
-
-            // Trigger vibration feedback
-            if (mVibrator != null) {
-                mVibrator.vibrate(VibrationEffect.createOneShot(85, VibrationEffect.DEFAULT_AMPLITUDE));
-            }
 
         } else if (preference == mPerfProfile) {
             String newPerfProfileValue = (String) newValue;

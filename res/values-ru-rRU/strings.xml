@@ -107,12 +107,6 @@
     <string name="clear_speaker_summary">Воспроизведите 30-сек. звук, чтобы очистить динамик</string>
     <string name="clear_speaker_description">Запустите эту функцию один или два раза, если вы обнаружите, что ваш динамик слегка забит пылью. Установите громкость мультимедиа на максимум.\n\nЕсли динамик сильно забит, запустите эту функцию 2–5 раз, встряхивая устройство, при этом динамик должен быть направлен вниз.\n\nВНИМАНИЕ: Убедитесь, что все наушники отключены.</string>
 
-	  <!-- Vibration Strength -->
-    <string name="vibration_strength_title">Сила вибрации</string>
-    <string name="vibration_strength_low">Низкая</string>
-    <string name="vibration_strength_medium">Средняя</string>
-    <string name="vibration_strength_high">Высокая (по умолчанию)</string>
-
     <!-- MTK Engineer Mode-->
     <string name="engineer_mode_title">Режим инженера MTK</string>
     <string name="engineer_mode_summary">Не делайте здесь ничего, чего вы не понимаете</string>

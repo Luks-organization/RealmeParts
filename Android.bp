@@ -27,13 +27,6 @@ android_app {
 }
 
 prebuilt_etc {
-    name: "cabc.rc",
-    vendor: true,
-    src: "init/cabc.rc",
-    sub_dir: "init",
-}
-
-prebuilt_etc {
     name: "parts.rc",
     src: "init/parts.rc",
     sub_dir: "init",
