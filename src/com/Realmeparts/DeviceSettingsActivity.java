@@ -8,7 +8,6 @@ package com.realmeparts;
 import android.app.Fragment;
 import android.os.Bundle;
 import com.android.settingslib.collapsingtoolbar.CollapsingToolbarBaseActivity;
-import com.android.settingslib.collapsingtoolbar.R;
 
 public class DeviceSettingsActivity extends CollapsingToolbarBaseActivity {
 
@@ -21,7 +20,7 @@ public class DeviceSettingsActivity extends CollapsingToolbarBaseActivity {
     }
 
     private void initializeFragment() {
-        Fragment existingFragment = getFragmentManager().findFragmentById(R.id.content_frame);
+        Fragment existingFragment = getFragmentManager().findFragmentById(com.android.settingslib.collapsingtoolbar.R.id.content_frame);
 
         if (existingFragment == null) {
             mDeviceSettingsFragment = new DeviceSettings();
@@ -33,7 +32,7 @@ public class DeviceSettingsActivity extends CollapsingToolbarBaseActivity {
 
     private void addFragment(Fragment fragment) {
         getFragmentManager().beginTransaction()
-                .add(R.id.content_frame, fragment)
+                .add(com.android.settingslib.collapsingtoolbar.R.id.content_frame, fragment)
                 .commit();
     }
 }
