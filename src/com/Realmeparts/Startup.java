@@ -41,7 +41,7 @@ public class Startup extends BroadcastReceiver {
     }
 
     private void handleRefreshRate(SharedPreferences sharedPrefs) {
-        if (sharedPrefs.getBoolean("refresh_rate_90Forced", false)) {
+        if (sharedPrefs.getBoolean("refresh_rate_90Forced", true)) {
             RefreshRateSwitch.setForcedRefreshRate(1);
         }
     }

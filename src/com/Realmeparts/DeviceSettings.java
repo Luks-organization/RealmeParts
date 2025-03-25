@@ -132,7 +132,7 @@ public class DeviceSettings extends PreferenceFragment
         // Refresh Rate 90Hz Forced Switch
         mRefreshRate90Forced = findPreference("refresh_rate_90Forced");
         if (mRefreshRate90Forced != null) {
-            mRefreshRate90Forced.setChecked(prefs.getBoolean("refresh_rate_90Forced", false));
+            mRefreshRate90Forced.setChecked(prefs.getBoolean("refresh_rate_90Forced", true));
             mRefreshRate90Forced.setOnPreferenceChangeListener(new RefreshRateSwitch(context));
         }
 
