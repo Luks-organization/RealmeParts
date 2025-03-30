@@ -5,13 +5,18 @@
 
 android_app {
     name: "RealmeParts",
+
+    // Include SettingsLib and it's dependencies
     defaults: ["SettingsLibDefaults"],
 
     srcs: ["src/**/*.java"],
     resource_dirs: ["res"],
 
-    certificate: "platform",
+    manifest: "AndroidManifest.xml",
+
     platform_apis: true,
+    certificate: "platform",
+    system_ext_specific: true,
     privileged: true,
 
     static_libs: [
@@ -29,5 +34,6 @@ android_app {
 prebuilt_etc {
     name: "parts.rc",
     src: "init/parts.rc",
+    system_ext_specific: true,
     sub_dir: "init",
 }
