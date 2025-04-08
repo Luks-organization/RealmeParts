@@ -33,17 +33,13 @@ public class DeviceSettings extends PreferenceFragment
     public static final String KEY_SRGB_SWITCH = "srgb";
     public static final String KEY_DC_SWITCH = "dc";
     public static final String KEY_OTG_SWITCH = "otg";
-    public static final String KEY_GAME_SWITCH = "game";
-    public static final String KEY_PERF_PROFILE = "perf_profile";
     public static final String KEY_DT2W_SWITCH = "dt2w";
-    public static final String KEY_DND_SWITCH = "dnd";
     public static final String KEY_CABC = "cabc";
     public static final String KEY_SETTINGS_PREFIX = "device_setting_";
     public static final String TP_LIMIT_ENABLE = "/proc/touchpanel/oplus_tp_limit_enable";
     public static final String TP_DIRECTION = "/proc/touchpanel/oplus_tp_direction";
 
     // System Properties
-    public static final String PERF_PROFILE_SYSTEM_PROPERTY = "persist.perf_profile";
     public static final String CABC_SYSTEM_PROPERTY = "persist.cabc_profile";
 
     // Key categories
@@ -54,7 +50,6 @@ public class DeviceSettings extends PreferenceFragment
     private static final String ProductName = Utils.ProductName();  // Get product name
 
     // Preference components
-    public TwoStatePreference mDNDSwitch;
     public PreferenceCategory mPreferenceCategory;
 
     public static TwoStatePreference mRefreshRate90Forced;
@@ -66,9 +61,7 @@ public class DeviceSettings extends PreferenceFragment
     private TwoStatePreference mDCModeSwitch;
     private TwoStatePreference mSRGBModeSwitch;
     private TwoStatePreference mOTGModeSwitch;
-    private TwoStatePreference mGameModeSwitch;	
     private SecureSettingListPreference mCABC;
-    private SecureSettingListPreference mPerfProfile;
     private Preference mEngineerMode;
 
     private boolean CABC_DeviceMatched;
@@ -113,14 +106,6 @@ public class DeviceSettings extends PreferenceFragment
             mOTGModeSwitch.setOnPreferenceChangeListener(new OTGModeSwitch());
         }
 
-        // Initialize Game Mode Switch
-        mGameModeSwitch = findPreference(KEY_GAME_SWITCH);
-        if (mGameModeSwitch != null) {
-            mGameModeSwitch.setEnabled(GameModeSwitch.isSupported());
-            mGameModeSwitch.setChecked(GameModeSwitch.isCurrentlyEnabled(context));
-            mGameModeSwitch.setOnPreferenceChangeListener(new GameModeSwitch(context));
-        }
-
         // Initialize DT2W Mode Switch
         mDT2WModeSwitch = findPreference(KEY_DT2W_SWITCH);
         if (mDT2WModeSwitch != null) {
@@ -142,14 +127,6 @@ public class DeviceSettings extends PreferenceFragment
             mCABC.setValue(Utils.getStringProp(CABC_SYSTEM_PROPERTY, "0"));
             mCABC.setSummary(mCABC.getEntry());
             mCABC.setOnPreferenceChangeListener(this);
-        }
-
-        // Performance Profile Preference
-        mPerfProfile = findPreference(KEY_PERF_PROFILE);
-        if (mPerfProfile != null) {
-            mPerfProfile.setValue(Utils.getStringProp(PERF_PROFILE_SYSTEM_PROPERTY, "0"));
-            mPerfProfile.setSummary(mPerfProfile.getEntry());
-            mPerfProfile.setOnPreferenceChangeListener(this);
         }
 
         // Engineer Mode Preference (only available if Developer Options are enabled)
@@ -174,11 +151,6 @@ public class DeviceSettings extends PreferenceFragment
             mCABC.setSummary(mCABC.getEntry());
             Utils.setStringProp(CABC_SYSTEM_PROPERTY, newCABCValue);
 
-        } else if (preference == mPerfProfile) {
-            String newPerfProfileValue = (String) newValue;
-            mPerfProfile.setValue(newPerfProfileValue);
-            mPerfProfile.setSummary(mPerfProfile.getEntry());
-            Utils.setStringProp(PERF_PROFILE_SYSTEM_PROPERTY, newPerfProfileValue);
         }
 
         return true;

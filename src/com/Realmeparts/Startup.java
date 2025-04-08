@@ -23,13 +23,6 @@ public class Startup extends BroadcastReceiver {
         restoreSwitch(DCModeSwitch.getFile(), sharedPrefs.getBoolean(DeviceSettings.KEY_DC_SWITCH, false));
         restoreSwitch(SRGBModeSwitch.getFile(), sharedPrefs.getBoolean(DeviceSettings.KEY_SRGB_SWITCH, false));
         restoreSwitch(OTGModeSwitch.getFile(), sharedPrefs.getBoolean(DeviceSettings.KEY_OTG_SWITCH, false));
-        boolean gameModeEnabled = sharedPrefs.getBoolean(DeviceSettings.KEY_GAME_SWITCH, false);
-        restoreSwitch(GameModeSwitch.getFile(), gameModeEnabled);
-        
-        if (gameModeEnabled) {
-            Utils.startService(context, GameModeRotationService.class);
-        }
-        
         restoreSwitch(DT2WModeSwitch.getFile(), sharedPrefs.getBoolean(DeviceSettings.KEY_DT2W_SWITCH, false));
         handleRefreshRate(sharedPrefs);
     }

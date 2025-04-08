@@ -80,37 +80,20 @@
     <string name="otg_mode_summary">Включить питание USB-OTG для внешних наушников и флэш-накопителей</string>
     <string name="otg_mode_title">Включить USB-OTG</string>
     <string name="tile_otg_mode">Включить USB-OTG</string>
-    <!-- game mode -->
-    <string name="game_mode_summary">Включение игрового режима. Использование игрового режима значительно влияет на срок службы батареи</string>
-    <string name="game_mode_title">Игровой режим</string>
-    <string name="tile_game_mode">Игровой режим</string>
-    <string name="dnd_title">Не беспокоить</string>
-    <string name="dnd_summary">Режим Не беспокоить будет активирован, если включен игровой режим</string>
-    <string name="game_mode_notif_content">Игровой режим активирован</string>
     <!-- DT2W -->
     <string name="dt2w_title">Двойное нажатие для пробуждения</string>
     <string name="dt2w_summary">Если включена функция «Двойное нажатие для пробуждения», вы можете дважды коснуться экрана, чтобы включить его.</string>
-    <!-- perf profiles -->
-    <string name="perf_title">Производительность устройства</string>
-    <string name="perf_profile_title">Профиль производительности</string>
-    <string name="mode_balance">Сбалансированный</string>
-    <string name="mode_battery">Энергосбережение</string>
-    <string name="mode_perf">Производительность</string>
-
     <!-- Forced Refresh rate -->
     <string name="refresh_title">Частота обновления экрана</string>
     <string name="refresh_rate_90Forced_title">Плавное отображение</string>
     <string name="refresh_rate_90Forced_summary">Переключение дисплея на частоту 90 Гц, что улучшает чувствительность сенсорного экрана и качество анимации. Увеличивает время автономной работы.</string>
-
     <!-- Clear Speaker -->
     <string name="clear_speaker_title">Очистить динамик</string>
     <string name="clear_speaker_summary">Воспроизведите 30-сек. звук, чтобы очистить динамик</string>
     <string name="clear_speaker_description">Запустите эту функцию один или два раза, если вы обнаружите, что ваш динамик слегка забит пылью. Установите громкость мультимедиа на максимум.\n\nЕсли динамик сильно забит, запустите эту функцию 2–5 раз, встряхивая устройство, при этом динамик должен быть направлен вниз.\n\nВНИМАНИЕ: Убедитесь, что все наушники отключены.</string>
-
     <!-- MTK Engineer Mode-->
     <string name="engineer_mode_title">Режим инженера MTK</string>
     <string name="engineer_mode_summary">Не делайте здесь ничего, чего вы не понимаете</string>
-
     <!-- Unsupported -->
     <string name="unsupported">Неподдерживаемый</string>
 
