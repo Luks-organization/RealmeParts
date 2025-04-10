@@ -16,7 +16,6 @@ android_app {
 
     platform_apis: true,
     certificate: "platform",
-    system_ext_specific: true,
     privileged: true,
 
     static_libs: [
@@ -34,6 +33,5 @@ android_app {
 prebuilt_etc {
     name: "parts.rc",
     src: "init/parts.rc",
-    system_ext_specific: true,
     sub_dir: "init",
 }
