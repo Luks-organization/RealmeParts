@@ -23,7 +23,6 @@ public class Startup extends BroadcastReceiver {
         restoreSwitch(DCModeSwitch.getFile(), sharedPrefs.getBoolean(DeviceSettings.KEY_DC_SWITCH, false));
         restoreSwitch(SRGBModeSwitch.getFile(), sharedPrefs.getBoolean(DeviceSettings.KEY_SRGB_SWITCH, false));
         restoreSwitch(OTGModeSwitch.getFile(), sharedPrefs.getBoolean(DeviceSettings.KEY_OTG_SWITCH, false));
-        restoreSwitch(DT2WModeSwitch.getFile(), sharedPrefs.getBoolean(DeviceSettings.KEY_DT2W_SWITCH, false));
         handleRefreshRate(sharedPrefs);
     }
 
@@ -37,15 +36,5 @@ public class Startup extends BroadcastReceiver {
         if (sharedPrefs.getBoolean("refresh_rate_90Forced", true)) {
             RefreshRateSwitch.setForcedRefreshRate(1);
         }
-    }
-
-    private boolean hasRestoredTunable(Context context) {
-        SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(context);
-        return preferences.getBoolean(ONE_TIME_TUNABLE_RESTORE, false);
-    }
-
-    private void setRestoredTunable(Context context) {
-        SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(context);
-        preferences.edit().putBoolean(ONE_TIME_TUNABLE_RESTORE, true).apply();
     }
 }

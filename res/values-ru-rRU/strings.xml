@@ -80,9 +80,6 @@
     <string name="otg_mode_summary">Включить питание USB-OTG для внешних наушников и флэш-накопителей</string>
     <string name="otg_mode_title">Включить USB-OTG</string>
     <string name="tile_otg_mode">Включить USB-OTG</string>
-    <!-- DT2W -->
-    <string name="dt2w_title">Двойное нажатие для пробуждения</string>
-    <string name="dt2w_summary">Если включена функция «Двойное нажатие для пробуждения», вы можете дважды коснуться экрана, чтобы включить его.</string>
     <!-- Forced Refresh rate -->
     <string name="refresh_title">Частота обновления экрана</string>
     <string name="refresh_rate_90Forced_title">Плавное отображение</string>

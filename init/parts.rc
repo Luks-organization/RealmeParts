@@ -1,4 +1,5 @@
 on boot
+    # OTG
     chown system system /sys/devices/virtual/oplus_chg/usb/otg_switch
 
     # CABC
@@ -11,6 +12,9 @@ on boot
 
     # DC Mode
     chown system system /sys/kernel/oplus_display/dimlayer_bl_en
+
+    # SRGB Mode
+    chown system system /sys/kernel/oplus_display/seed
 
     # CABC off
 on property:persist.cabc_profile=0

@@ -33,7 +33,6 @@ public class DeviceSettings extends PreferenceFragment
     public static final String KEY_SRGB_SWITCH = "srgb";
     public static final String KEY_DC_SWITCH = "dc";
     public static final String KEY_OTG_SWITCH = "otg";
-    public static final String KEY_DT2W_SWITCH = "dt2w";
     public static final String KEY_CABC = "cabc";
     public static final String KEY_SETTINGS_PREFIX = "device_setting_";
     public static final String TP_LIMIT_ENABLE = "/proc/touchpanel/oplus_tp_limit_enable";
@@ -56,7 +55,6 @@ public class DeviceSettings extends PreferenceFragment
     public static DisplayManager mDisplayManager;
 
     private static NotificationManager mNotificationManager;
-    private static TwoStatePreference mDT2WModeSwitch;
 
     private TwoStatePreference mDCModeSwitch;
     private TwoStatePreference mSRGBModeSwitch;
@@ -104,14 +102,6 @@ public class DeviceSettings extends PreferenceFragment
             mOTGModeSwitch.setEnabled(OTGModeSwitch.isSupported());
             mOTGModeSwitch.setChecked(OTGModeSwitch.isCurrentlyEnabled(context));
             mOTGModeSwitch.setOnPreferenceChangeListener(new OTGModeSwitch());
-        }
-
-        // Initialize DT2W Mode Switch
-        mDT2WModeSwitch = findPreference(KEY_DT2W_SWITCH);
-        if (mDT2WModeSwitch != null) {
-            mDT2WModeSwitch.setEnabled(DT2WModeSwitch.isSupported());
-            mDT2WModeSwitch.setChecked(DT2WModeSwitch.isCurrentlyEnabled(context));
-            mDT2WModeSwitch.setOnPreferenceChangeListener(new DT2WModeSwitch());
         }
 
         // Refresh Rate 90Hz Forced Switch
