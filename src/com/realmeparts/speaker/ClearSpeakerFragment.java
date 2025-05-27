@@ -8,9 +8,12 @@ package com.realmeparts.speaker;
 import android.content.Context;
 import android.content.res.AssetFileDescriptor;
 import android.media.AudioManager;
+import android.media.AudioAttributes;
 import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.os.Handler;
+import android.os.Looper;
+import android.os.Message;
 import android.util.Log;
 
 import androidx.preference.Preference;
@@ -21,22 +24,23 @@ import com.realmeparts.R;
 
 import java.io.IOException;
 
-public class ClearSpeakerFragment extends PreferenceFragment implements Preference.OnPreferenceChangeListener {
+public class ClearSpeakerFragment extends PreferenceFragment implements
+        Preference.OnPreferenceChangeListener {
 
     private static final String TAG = ClearSpeakerFragment.class.getSimpleName();
+
     private static final String PREF_CLEAR_SPEAKER = "clear_speaker_pref";
-    private static final int PLAY_DURATION = 30000; // Duration to play sound in milliseconds
 
     private AudioManager mAudioManager;
+    private Handler mHandler;
     private MediaPlayer mMediaPlayer;
     private SwitchPreference mClearSpeakerPref;
-    private Handler mHandler;
 
     @Override
     public void onCreatePreferences(Bundle savedInstanceState, String rootKey) {
         addPreferencesFromResource(R.xml.clear_speaker_settings);
 
-        mClearSpeakerPref = findPreference(PREF_CLEAR_SPEAKER);
+        mClearSpeakerPref = (SwitchPreference) findPreference(PREF_CLEAR_SPEAKER);
         mClearSpeakerPref.setOnPreferenceChangeListener(this);
 
         mHandler = new Handler();
@@ -45,12 +49,14 @@ public class ClearSpeakerFragment extends PreferenceFragment implements Preferen
 
     @Override
     public boolean onPreferenceChange(Preference preference, Object newValue) {
-        if (preference == mClearSpeakerPref && newValue instanceof Boolean) {
+        if (preference == mClearSpeakerPref) {
             boolean value = (Boolean) newValue;
             if (value) {
                 if (startPlaying()) {
-                    // Schedule the stopPlaying method to be called after PLAY_DURATION milliseconds
-                    mHandler.postDelayed(this::stopPlaying, PLAY_DURATION);
+                    mHandler.removeCallbacksAndMessages(null);
+                    mHandler.postDelayed(() -> {
+                        stopPlaying();
+                    }, 30000);
                     return true;
                 }
             }
@@ -64,7 +70,7 @@ public class ClearSpeakerFragment extends PreferenceFragment implements Preferen
         stopPlaying();
     }
 
-    private boolean startPlaying() {
+    public boolean startPlaying() {
         mAudioManager.setParameters("status_earpiece_clean=on");
         mMediaPlayer = new MediaPlayer();
         getActivity().setVolumeControlStream(AudioManager.STREAM_MUSIC);
@@ -88,14 +94,14 @@ public class ClearSpeakerFragment extends PreferenceFragment implements Preferen
         return true;
     }
 
-    private void stopPlaying() {
+    public void stopPlaying() {
         if (mMediaPlayer != null) {
             if (mMediaPlayer.isPlaying()) {
                 mMediaPlayer.stop();
+                mMediaPlayer.reset();
+                mMediaPlayer.release();
+                mMediaPlayer=null;
             }
-            mMediaPlayer.reset();
-            mMediaPlayer.release();
-            mMediaPlayer = null;
         }
         mAudioManager.setParameters("status_earpiece_clean=off");
         mClearSpeakerPref.setEnabled(true);
